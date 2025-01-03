@@ -11,7 +11,7 @@ def is_contains(string, list_to_search):
     count_calls()
     list_to_search = [i.lower() for i in list_to_search]  # весь список в нижний регистр
     return (string.lower() in                             # строка тоже в нижний регистр
-            [j.lower() for j in list_to_search])  
+            [j for j in list_to_search])
 # Вывод результатов
 calls = 0
 print(string_info('Capybara'))

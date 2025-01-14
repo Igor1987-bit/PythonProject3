@@ -1,4 +1,4 @@
-def calculate_structure_result(*args): # recursive counting function
+def calculate_structure_sum(*args): # recursive counting function
     global call_counter
     call_counter += 1
     result = 0
@@ -9,9 +9,9 @@ def calculate_structure_result(*args): # recursive counting function
             result += len(x)
         elif isinstance(x, (list, tuple,
                             set)):  # recursively counting nested elements in lists, tuples and sets
-            result += calculate_structure_result(*x)
+            result += calculate_structure_sum(*x)
         elif isinstance(x, dict):  # recursively counting elements in a dictionary
-            result += calculate_structure_result(*tuple(x.items()))
+            result += calculate_structure_sum(*tuple(x.items()))
     return result
 
 
@@ -23,7 +23,7 @@ data_structure = [
     "Hello",
     ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
-print(f'{calculate_structure_result(data_structure)} - это результат \nрекурсивного '
+print(f'{calculate_structure_sum(data_structure)} - это результат \nрекурсивного '
       f'подсчета\nвсевозможных чисел')
 print(f'{call_counter} - вызовов функции')
 
